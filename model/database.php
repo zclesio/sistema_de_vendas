@@ -60,6 +60,16 @@ function getProdutos(){
     }
 }
 
+function editarProduto($id, $name, $tipo, $unidade, $preco){
+    try{
+        $pdo = connection();
+        $sql = "UPDATE produtos SET nome='$name', tipo='$tipo', unidade='$unidade', preco=$preco WHERE id=$id";
+        $pdo->query($sql);
+        return true;
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+}
 function addUser($name, $username, $passwod, $tipo){
     // **Adicionar usuario** ['id'], 'user_name', 'password', 'tipo', 'name' -> true or tal erro;
     try{

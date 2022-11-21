@@ -1,6 +1,6 @@
 **Login** controller/login.php -> 'name' and 'password'-> return 'tipo de usuario'(0-vendedor, 1-admin)
 
-**Adicionar produtos** controller/produtos -> ['id'], 'nome', 'tipo', 'unidade', 'preco', ['stock'] -> true or tal erro;
+**Adicionar produtos** controller/produtos ->'produto'->'adicionar', ['id'], 'nome', 'tipo', 'unidade', 'preco', ['stock'] -> true or tal erro;
 
 **Listar produtos** controller/produtos.php -> 'get'='all' -> JSON;
 
