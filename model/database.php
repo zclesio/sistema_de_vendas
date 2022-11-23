@@ -86,13 +86,38 @@ function verUsuarios($id){
     // **Ver usuarios** controller/usuarios.php -> 'get'='all' -> JSON;
     try{
         $pdo = connection();
-        $sql = "SELECT * FROM usuarios WHERE id!=$id";
+        $sql = "SELECT usuarios.name, usuarios.user_name, usuarios.tipo FROM usuarios WHERE id!=$id";
         $data = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         if($data){
             return $data;
         }else{
             throw new PDOException("Nenhum usuario registado");
         }
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+}
+
+function getSingleUser($id){
+    try{
+        $pdo = connection();
+        $sql = "SELECT * FROM usuarios WHERE id=$id";
+        $data = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if($data){
+            return $data;
+        }else{
+            throw new PDOException("Nenhum usuario registado");
+        }
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+}
+function editarUsuario($id, $name, $username, $password, $tipo){
+    try{
+        $pdo = connection();
+        $sql = "UPDATE usuarios SET name='$name', user_name='$username', password='$password', tipo=$tipo WHERE id=$id";
+        $pdo->query($sql);
+        return true;
     }catch(PDOException $e){
         echo $e->getMessage();
     }

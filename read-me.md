@@ -6,7 +6,7 @@
 
 **Vender produto**
 
-**Adicionar usuario** ['id'], 'user_name', 'password', 'tipo', 'name' -> true or tal erro;
+**Adicionar usuario** controller/usuarios -> 'usuario'->'adicionar', ['id'], 'user_name', 'password', 'tipo', 'name' -> true or tal erro;
 
 **Ver usuarios** controller/usuarios.php -> 'get'='all' -> JSON;
 
